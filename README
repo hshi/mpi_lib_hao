@@ -2,3 +2,5 @@ mpi_lib_hao
 ==============
 
 The c++ mpi library, it is a wrap to use mpi.
+
+This project is licensed under the terms of the MIT license.
