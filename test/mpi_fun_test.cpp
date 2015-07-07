@@ -92,6 +92,18 @@ void MPIBcast_double_pointer_test()
     if(flag!=0) cout<<"Warning!!!!MPIBcast failed the double pointer test! rank: "<<MPIRank()<<endl;
 }
 
+
+void MPIBcast_complex_double_pointer_test()
+{
+    complex<double> a[3]={};
+    if(MPIRank()==0) {for(int i=0; i<3; i++) a[i]=complex<double>(i,1.2*i);}
+    MPIBcast(3,a);
+
+    size_t flag=0;
+    for(int i=0; i<3; i++) {if(abs( a[i]-complex<double>(i,1.2*i) )>1e-12) flag++;}
+    if(flag!=0) cout<<"Warning!!!!MPIBcast failed the complex double pointer test! rank: "<<MPIRank()<<endl;
+}
+
 void MPISum_int_test()
 {
     int i=2;
@@ -262,6 +274,7 @@ void mpi_fun_test()
    
     MPIBcast_int_pointer_test();
     MPIBcast_double_pointer_test();
+    MPIBcast_complex_double_pointer_test();
    
     MPISum_int_test();
     MPISum_long_test();

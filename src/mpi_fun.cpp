@@ -72,6 +72,11 @@ void MPIBcast(int N, double* buffer, int root, const MPI_Comm& comm )
 }
 
 
+void MPIBcast(int N, complex<double>* buffer, int root, const MPI_Comm& comm )
+{
+    MPI_Bcast(buffer, N, MPI_DOUBLE_COMPLEX, root, comm);
+}
+
 
 int MPISum(const int& sendbuf, int root,  const MPI_Comm& comm)
 {
