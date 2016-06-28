@@ -1,7 +1,9 @@
-set(mpi_test_srcs mpi_fun_test.cpp test_all.cpp)
+set(test_exe mpitest)
 
-add_executable(mpitest ${mpi_test_srcs})
+file(GLOB test_srcs "*.cpp")
 
-target_link_libraries(mpitest mpihao)
+add_executable(${test_exe} ${test_srcs})
 
-install(TARGETS mpitest  DESTINATION test)
+target_link_libraries(${test_exe} mpihao)
+
+install(TARGETS ${test_exe}  DESTINATION test)

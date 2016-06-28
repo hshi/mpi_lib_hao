@@ -1,5 +1,7 @@
-set(mpi_srcs mpi_fun.cpp)
+set(src_lib mpihao)
 
-add_library(mpihao STATIC ${mpi_srcs})
+file(GLOB srcs "*.cpp")
 
-install(TARGETS mpihao  DESTINATION lib)
+add_library(${src_lib} STATIC ${srcs})
+
+install(TARGETS ${src_lib}  DESTINATION lib)
