@@ -18,7 +18,7 @@ int main(int argc, char** argv)
     mpi_fun_test();
 
     MPIBarrier();
-    if(MPIRank()==0) cout<<"\n\nIf these is no warning, we have passed all the test!"<<endl;
+    if(MPIRank()==0) cout<<"PASSED! If these is no warning, we have passed all the test!"<<endl;
 
     MPIFinalize();
     return 0;
