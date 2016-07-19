@@ -8,11 +8,11 @@ void MPIInit(int& argc,char** & argv) {MPI_Init(&argc,&argv);}
 void MPIInitFunnel(int& argc,char** & argv) 
 {
     int provided; MPI_Init_thread(&argc,&argv,MPI_THREAD_FUNNELED,&provided);
-    if(provided!=MPI_THREAD_FUNNELED)
-    {
-        if(MPIRank()==0) std::cout<<"WARNING!!!!The Marchine does not supply MPI_THREAD_FUNNELED, only supply to: "
-                                  <<provided<<"-th level!"<<std::endl;
-    }
+    //if(provided!=MPI_THREAD_FUNNELED)
+    //{
+    //    if(MPIRank()==0) std::cout<<"WARNING!!!!The Marchine does not supply MPI_THREAD_FUNNELED, only supply to: "
+    //                              <<provided<<"-th level!"<<std::endl;
+    //}
 }
 int MPISize(const MPI_Comm& comm) {int size;MPI_Comm_size(comm, &size);return size;}
 int MPIRank(const MPI_Comm& comm) {int rank;MPI_Comm_rank(comm, &rank);return rank;}
